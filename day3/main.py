@@ -57,6 +57,10 @@ if __name__ == '__main__':
 
     t = time.process_time()
     puzzel1()
+    elapsed_time = time.process_time() - t
+    print("benchpress69: ",elapsed_time*10000000, "microsex")
+
+    t = time.process_time()
     dinges = dinges * puzzel2(1,1)
     dinges = dinges * puzzel2(3,1)
     dinges = dinges * puzzel2(5,1)
@@ -66,7 +70,7 @@ if __name__ == '__main__':
 
     elapsed_time = time.process_time() - t
     print("the product of all dinges:",dinges)
-    print("benchpress69: ",elapsed_time*1000, "milisex")
+    print("benchpress69: ",elapsed_time*10000000, "microsex")
 
 
 
