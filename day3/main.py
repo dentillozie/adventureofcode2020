@@ -1,3 +1,5 @@
+import time
+
 def puzzel1():
     linenumber = 0
     jump = 3
@@ -24,7 +26,6 @@ def puzzel1():
     print("number of trees in puzzel1:", trees)
 
 def puzzel2(jump, linejump):
-    linenumber = 0
     linejump = linejump
     jump = jump
     trees = 0
@@ -53,14 +54,19 @@ def puzzel2(jump, linejump):
 
 if __name__ == '__main__':
     dinges = 1
+
+    t = time.process_time()
     puzzel1()
     dinges = dinges * puzzel2(1,1)
     dinges = dinges * puzzel2(3,1)
     dinges = dinges * puzzel2(5,1)
     dinges = dinges * puzzel2(7,1)
     dinges = dinges * puzzel2(1,2)
-    print("the product of all dinges:",dinges)
 
+
+    elapsed_time = time.process_time() - t
+    print("the product of all dinges:",dinges)
+    print("benchpress69: ",elapsed_time*1000, "milisex")
 
 
 

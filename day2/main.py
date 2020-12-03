@@ -1,9 +1,9 @@
 import numpy as np
-
+import time
 def puzzel1():
     validPasswords = 0
 
-    data = np.loadtxt("./day3/input", delimiter=": ", dtype="str")
+    data = np.loadtxt("./day2/input.txt", delimiter=": ", dtype="str")
 
     for [rule, password] in data:
         [bounds, letter] = rule.split(" ")
@@ -14,7 +14,7 @@ def puzzel1():
 
 def puzzel2():
 
-    data = np.loadtxt("./day3/input", delimiter=": ", dtype="str")
+    data = np.loadtxt("./day2/input.txt", delimiter=": ", dtype="str")
 
 
     correct_passwords = 0
@@ -28,6 +28,9 @@ def puzzel2():
 
 
 if __name__ == '__main__':
+    t = time.process_time()
     puzzel1()
     puzzel2()
+    elapsed_time = time.process_time() - t
+    print("benchpress69: ",elapsed_time*1000, "milisex")
 
