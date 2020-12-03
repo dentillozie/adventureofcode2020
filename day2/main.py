@@ -1,16 +1,33 @@
-# This is a sample Python script.
+import numpy as np
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def puzzel1():
+    validPasswords = 0
+
+    data = np.loadtxt("./day3/input", delimiter=": ", dtype="str")
+
+    for [rule, password] in data:
+        [bounds, letter] = rule.split(" ")
+        [l_bound, u_bound] = map(int, bounds.split("-"))
+        validPasswords += l_bound <= password.count(letter) <= u_bound
+
+    print("Puzzle 1: The number of correct passwords in the dataset are: "f"{validPasswords}")
+
+def puzzel2():
+
+    data = np.loadtxt("./day3/input", delimiter=": ", dtype="str")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    correct_passwords = 0
+    for [rule, password] in data:
+        [indices, letter] = rule.split(" ")
+        [l_index, u_index] = map(int, indices.split("-"))
+        correct_passwords += (password[l_index - 1] == letter) ^ (password[u_index - 1] == letter)
+
+    print("Puzzle 2: The number of correct passwords in the dataset are: "f"{correct_passwords}")
 
 
-# Press the green button in the gutter to run the script.
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    puzzel1()
+    puzzel2()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
