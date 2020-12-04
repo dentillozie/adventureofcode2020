@@ -80,9 +80,9 @@ if __name__ == '__main__':
     t = time.process_time()
     puzzel1()
     elapsed_time = time.process_time() - t
-    print("benchpress69: ", elapsed_time * 1000, "milisex")
+    print("benchpress69: ", elapsed_time * 1000000, "µsex")
 
     t = time.process_time()
     puzzel2()
     elapsed_time = time.process_time() - t
-    print("benchpress69: ", elapsed_time * 1000, "milisex")
+    print("benchpress69: ", elapsed_time * 1000000, "µsex")
