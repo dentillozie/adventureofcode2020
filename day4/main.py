@@ -49,9 +49,9 @@ def puzzel2():
 
     for passport in validpplist:
         passport=passport[:-1]
-        passportSplit = passport.replace(' ', ',')
+        passport = passport.replace(' ', ',')
         mydict = dict((k.strip(), v.strip()) for k, v in
-                      (item.split(':') for item in passportSplit.split(',')))
+                      (item.split(':') for item in passport.split(',')))
         if 1919 < int(mydict['byr']) < 2003 and len(mydict['byr']) > 3:
             if 2009 < int(mydict['iyr']) < 2021 and len(mydict['iyr']) > 3:
                 if 2019 < int(mydict['eyr']) < 2031 and len(mydict['eyr']) > 3:
