@@ -1,8 +1,10 @@
 import time
 import re
+
+
 def puzzel1():
-    data=[]
-    dataline=""
+    data = []
+    dataline = ""
     validPassports = 0
 
     fileHandler = open("input.txt")
@@ -14,22 +16,23 @@ def puzzel1():
             dataline = dataline + line
         else:
             data.append(dataline)
-            dataline=""
+            dataline = ""
 
     for pasport in data:
-        if pasport.__contains__("byr") and pasport.__contains__("iyr") and pasport.__contains__("eyr") and pasport.__contains__("hgt")\
+        if pasport.__contains__("byr") and pasport.__contains__("iyr") and pasport.__contains__(
+                "eyr") and pasport.__contains__("hgt") \
                 and pasport.__contains__("hcl") and pasport.__contains__("ecl") and pasport.__contains__("pid"):
-            validPassports = validPassports+1
+            validPassports = validPassports + 1
 
     print("Puzzle 1: The number of correct passports in the dataset are: "f"{validPassports}")
 
 
 def puzzel2():
-    data=[]
-    validpplist=[]
-    dataline=""
+    data = []
+    validpplist = []
+    dataline = ""
     validPassports = 0
-    ecllist= ['amb','blu','brn','gry','grn','hzl','oth']
+    ecllist = ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
     fileHandler = open("input.txt")
 
     listOfLines = fileHandler.readlines()
@@ -39,16 +42,16 @@ def puzzel2():
             dataline = dataline + line
         else:
             data.append(dataline)
-            dataline=""
+            dataline = ""
 
     for pasport in data:
-        if pasport.__contains__("byr") and pasport.__contains__("iyr") and pasport.__contains__("eyr") and pasport.__contains__("hgt")\
+        if pasport.__contains__("byr") and pasport.__contains__("iyr") and pasport.__contains__(
+                "eyr") and pasport.__contains__("hgt") \
                 and pasport.__contains__("hcl") and pasport.__contains__("ecl") and pasport.__contains__("pid"):
             validpplist.append(pasport)
 
-
     for passport in validpplist:
-        passport=passport[:-1]
+        passport = passport[:-1]
         passport = passport.replace(' ', ',')
         mydict = dict((k.strip(), v.strip()) for k, v in
                       (item.split(':') for item in passport.split(',')))
@@ -68,21 +71,18 @@ def puzzel2():
                                     if 149 < int(huugte) < 194:
                                         validPassports = validPassports + 1
 
-
     print("Puzzle 2: The number of correct passports in the dataset are: "f"{validPassports}")
 
     return True
-
 
 
 if __name__ == '__main__':
     t = time.process_time()
     puzzel1()
     elapsed_time = time.process_time() - t
-    print("benchpress69: ",elapsed_time*1000, "milisex")
+    print("benchpress69: ", elapsed_time * 1000, "milisex")
 
     t = time.process_time()
     puzzel2()
     elapsed_time = time.process_time() - t
-    print("benchpress69: ",elapsed_time*1000, "milisex")
-
+    print("benchpress69: ", elapsed_time * 1000, "milisex")
